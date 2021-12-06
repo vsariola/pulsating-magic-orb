@@ -38,22 +38,22 @@ function TIC()
  t=t+1,t<8192 or exit()
  c=c+d[-2]
  cls(c%9*4)
- 
+
+ n=t//1024
  q=t/299
  p=math.pi*(3-5^.5) 
  for k=0,1 do
-  for i=0,2e3 do
-   z=1-i/2e3*2
+  for i=0,2400 do
+   z=1-i/1200
    r=(1-z*z)^.5
    w=p*i
    x=math.cos(w)*r
    y=math.sin(w)*r
-   r=s(s(x*5+c/7)+s(y*5+c/9)+s(z*5+c/8)+q/3)^(c%7+1)*(1+s(c*4))+1
+   r=s(s(x*5+c/7)+s(y*5+c/8)+s(z*5+c/9)+q/3)^(c%7+1)*(1+s(c*4))/4+1
    z=z*r+2
-   if k==0 then
-    y=1
-   end
-   circ(x*99/z+120,y*99/z+68,z<0 or 6/z,k*(r*z*d[0]+y*s(c)*d[-1])/3)
+   x=x*r
+   y=y*r*k+1-k  
+   circ(x*r*99/z+120,y*99/z+68,z<0 or 6/z,k*(d[0]*z+p%5*y*s(c)*d[-1])/3)
   end
  end 
 end
