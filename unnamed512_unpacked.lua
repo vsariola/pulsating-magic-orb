@@ -51,9 +51,9 @@ function TIC()
    y=math.sin(w)*r
    r=s(s(x*5+c/7)+s(y*5+c/8)+s(z*5+c/9)+q/3)^(c%7+1)*(1+s(c*4))/4+1
    z=z*r+2
-   x=x*r
-   y=y*r*k+1-k  
-   circ(x*r*99/z+120,y*99/z+68,z<0 or 6/z,k*(d[0]*z+p%5*y*s(c)*d[-1])/3)
+   x=x*r*99/z+120-6/z
+   yy=(y*r*k+1-k)*99/z+68-6/z
+   rect(x,yy,12/z,12/z,k*(d[0]*z+p%5*y*s(c)*d[-1])/3)
   end
  end 
 end
