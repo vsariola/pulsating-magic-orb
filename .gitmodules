@@ -1,0 +1,4 @@
+[submodule "pactic"]
+	path = pactic
+	url = https://github.com/phlubby/pactic/
+	branch = dev

@@ -1,0 +1,1 @@
+python pactic/pactic.py -c unnamed512_unpacked.lua -o unnamed512.tic
