@@ -41,19 +41,19 @@ function TIC()
  
  q=t/299
  p=math.pi*(3-5^.5) 
- for k=0,2 do
-  for i=0,1e3 do
-   z=1-i/1e3*2
+ for k=0,1 do
+  for i=0,2e3 do
+   z=1-i/2e3*2
    r=(1-z*z)^.5
    w=p*i
    x=math.cos(w)*r
    y=math.sin(w)*r
-   r=s(s(x*5+c/7)+s(y*5+c/9)+s(z*5+c/8)+q/3)^(c%7+1)*(1+s(c*2))+1
+   r=s(s(x*5+c/7)+s(y*5+c/9)+s(z*5+c/8)+q/3)^(c%7+1)*(1+s(c*4))+1
    z=z*r+2
    if k==0 then
     y=1
    end
-   circ(x*99/z+120,y*99/z+68,z<0 or 6/z+2-k,k//2*z*d[0]/3)
+   circ(x*99/z+120,y*99/z+68,z<0 or 6/z,k*(r*z*d[0]+y*s(c)*d[-1])/3)
   end
  end 
 end
