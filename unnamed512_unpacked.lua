@@ -14,6 +14,7 @@ d={
 
 t=0
 c=0
+f=0
 
 function TIC()
  for k=0,3 do
@@ -38,29 +39,31 @@ function TIC()
  end
  t=t+1,t<8192 or exit()
  c=c+d[-2]
+ f=f+d[0]
  cls(c%9*4)
 
  n=t//1024
  q=t/299
  m=math.pi*(3-5^.5) 
  for k=0,1 do
-  for i=0,2400 do
+  for i=0,2400 do 
    z=1-i/1200
    r=(1-z*z)^.5
    w=m*i
    x=math.cos(w)*r
    y=math.sin(w)*r
-   r=s(s(x*5+c/7)
+   r=s(s(x*5+c/7+f/29)
     +s(y*5+c/8)
     +s(z*5+c/9)
     +q/3)^(c%7+1)*(s(c*(71+p))^2*2)/4+1
    z=z*r+2.1
+   h=p//5*d[-3]/2
    d[p//3%2+89](
-    x*r*99/z+120-6/z+d[0]/4,
-    (y*r*k+1-k)*99/z+68-6/z+d[0]/4,
-    12/z-d[0]/2,
-    12/z-d[0]/2,
-    k*(d[-3]*z+p%5*y*s(c)*d[-1])/3
+    x*r*99/z+120-6/z+h/2,
+    (y*r*k+1-k)*99/z+68-6/z+h/2,
+    12/z-h,
+    12/z-h,
+    k*(-d[-3]*z+4*y*(.5-c%7%2)*d[-1])/3
    )
   end
  end 
