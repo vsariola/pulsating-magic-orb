@@ -14,8 +14,6 @@ d={
  rect,rectb}
 
 t=0
-c=0
-f=0
 
 function TIC()
  for k=0,3 do
@@ -39,43 +37,40 @@ function TIC()
    d[-k]
   )
  end
- t=t+1,t<8192 or exit()
  c=d[3]
- f=d[1]
  cls(c%9*4)
-
- n=t//1024
- q=t/299
- m=math.pi*(3-5^.5) 
  for k=0,1 do
   for i=0,2400 do 
    z=1-i/1200
    r=(1-z*z)^.5   
-   w=m*i
-   x=math.cos(w)*r
-   y=math.sin(w)*r
+   x=s(2.4*i+11)*r
+   y=s(2.4*i)*r
    if p//2%2==1 then
-    y=y//.4*.4+.2
+    y=(y-d[4]/300)//.4*.4+d[4]/300
    end
-   r=s(s(x*5+c/7+f/40)
+   r=s(s(x*5+c/7+d[1]/40)
     +s(y*5+c/8)
     +s(z*5+c/9)
-    +q/3)^(c%7+1)*(s(c*(71+p))^2*2)/4+1
-   z=z*r+2.1
-   h=p//5*d[-3]/2
+    +t/900)^(c%7+1)*(s(c*(71+p))^2)/2+1
+   z=z*r+2.1       
+   h=12/z-p//5*d[-3]/2
    d[p//3%2+93](
-    x*r*99/z+120-6/z+h/2,
-    (y*r*k+1-k)*99/z+68-6/z+h/2,
-    12/z-h,
-    12/z-h,
-    k*(-d[-3]/(.3+z)*2-s(x/.2-t/64*3.14)^5*d[-1])/3
+    120+x*r*99/z-h/2,
+    68+(y*r*k+1-k)*99/z-h/2,
+    h,
+    h,
+    k*(-d[-3]/(.1+z)*2/3
+     -s(x*5-t*.05)^5*d[-1]/3
+    )
    )
   end
  end 
- debug()
+ t=t+1,t<8192 or exit(),p<7 or print("pestis@lovebyte2022",65,64,c%9*4)
+ --debug()
 end
 s=math.sin
 
+--[[
 function debug()
  updatetime = false
  if btn(2) and t>100 then t=t-100 updatetime=true end
@@ -94,6 +89,7 @@ function debug()
    end
  end
 end
+--]]
 
 -- <TILES>
 -- 001:eccccccccc888888caaaaaaaca888888cacccccccacc0ccccacc0ccccacc0ccc
