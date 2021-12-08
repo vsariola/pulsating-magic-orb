@@ -62,13 +62,14 @@ function TIC()
    )
   end
  end 
- t=t+1,t<8192 or exit(),p<7 or print("pestis@lovebyte2022",65,64,c%9*4)
- --debug()
+ t=t+1,t<8192 or exit(),p<7 or print("pestis@lovebyte2022",65,64,d[3]%9*4)
 end
 s=math.sin
 
 --[[
-function debug()
+TOC=TIC
+TIC=function()
+ TOC()
  updatetime = false
  if btn(2) and t>100 then t=t-100 updatetime=true end
  if btn(3) then t=t+100 updatetime=true end
