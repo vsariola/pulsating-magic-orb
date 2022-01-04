@@ -5,7 +5,7 @@ d={
  1,2,2,2,1,2,2,0, --chn 0 bass
  0,1,3,3,3,3,3,0, --chn 1 mid
  5,5,5,5,0,5,5,5, --chn 2 snare
- 7,7,7,7,1,7,7,7, --chn 3 kick 
+ 7,7,7,7,1,7,7,7, --chn 3 kick
  1,0,0,1,0,0,3,0, --pat 2
  1,0,1,0,2,0,3,0, --pat 3
  1,0,4,0,5,0,4,0, --pat 4
@@ -40,9 +40,9 @@ function TIC()
  end
  cls(d[3]%9*4) -- black, white, blue
  for k=0,1 do
-  for i=0,2400 do 
+  for i=0,2400 do
    z=1-i/1200
-   r=(1-z*z)^.5 
+   r=(1-z*z)^.5
    z=z-(3-p%3)//3*z
    r=p*p//3%2*(.8-r)+r
    x=r*s(2.4*i+11)
@@ -65,8 +65,8 @@ function TIC()
     )*4*(.5-p%2)/(.1+z)/4
    )
   end
- end 
- t=t+1,t<8192 or exit(),p<7 or print("pestis@lovebyte2022",65,64,d[3]%9*4)
+ end
+ t=t+1,t<8192 or exit(),p<7 or print("pestis@lovebyte2022",64,64,d[3]%9*4)
 end
 s=math.sin
 
@@ -78,14 +78,14 @@ TIC=function()
  if btn(2) and t>100 then t=t-100 updatetime=true end
  if btn(3) then t=t+100 updatetime=true end
  if updatetime then
-   for k=1,4 do d[k]=0 end   
+   for k=1,4 do d[k]=0 end
    for i=0,t-1 do
     for k=0,3 do
      p=i//1024
      e=i*(2-k//2)
      a=d[8*k+p+5]+i//128%8//7
      n=d[8*a+e//16%8+21]
-     d[-k]=-e%16%(a//2*16*n+1)   
+     d[-k]=-e%16%(a//2*16*n+1)
      d[k+1]=d[k+1]+d[-k]
     end
    end
