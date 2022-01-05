@@ -8,8 +8,8 @@ Tested with TIC-80 0.90.1723, packed with
 [pactic](https://github.com/phlubby/pactic). pactic should pack it down
 to 512 bytes. Remember to add -c option.
 
-Fibonacci sphere algorithm is great, even when you round the golden
-ratio to 2.4 ;)
+Fibonacci sphere algorithm is great, even when you use 2.4 as
+2*pi/golden ratio ;)
 
 Greets: superogue, psenough, havoc, jobe, pactic authors, bytebattlers
 and nesbox.
