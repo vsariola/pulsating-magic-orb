@@ -4,6 +4,8 @@ This repository contains the unpacked source for the TIC-80 512b intro
 "Pulsating Magic Orb", made by pestis / brainlez Coders! and released at
 LoveByte 2022 512b compo.
 
+Capture: https://youtu.be/hpQp0yHTgVs
+
 Tested with TIC-80 0.90.1723, packed with
 [pactic](https://github.com/phlubby/pactic). pactic should pack it down
 to 512 bytes. Remember to add -c option.
